@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package beans;
-import backend.AddTwo;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -27,7 +26,6 @@ public class Number implements Serializable{
     }
     
     public void addTwoB(){
-        AddTwo x = new AddTwo();
-        this.b = x.addToo(b);
+        this.b = b+2;
     }
 }

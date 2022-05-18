@@ -1,2 +1,14 @@
 gruppe22/steam/JakartaRestConfiguration.class
+beans/TemperatureBean.class
+beans/Employee.class
+beans/AjaxTest.class
+beans/AgeNavigator.class
+beans/CelsiusEventBean.class
+beans/SessionExample.class
+backend/TemperatureService.class
+beans/Person.class
+beans/StudentsBean.class
+beans/CelsiusDataBean.class
+beans/Student.class
 gruppe22/steam/resources/JakartaEE8Resource.class
+beans/Counter.class

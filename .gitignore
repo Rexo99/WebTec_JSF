@@ -1,7 +1,13 @@
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+/.idea
 /.idea/.gitignore
 /.idea/WebTec_Teil2.iml
 /SteaM/jshell.history
 /SteaM/target/
+.DS_Store
+SteaM/.DS_Store
+SteaM/src/.DS_Store
+SteaM/src/main/.DS_Store
+SteaM/nb-configuration.xml

@@ -15,9 +15,19 @@ public class LogIn_Navigation {
     private String username;
     private String password;
     
-    
+    /**
+     * goTo check the log in data and returns a String to the next page
+     * @return the next page
+     */
     public String goTo(){
-        ManagUserList.addUser(username, password);
+        
+        // to test the logIn I add some users
+        ManagUserList.addUser("Marvin", "password");
+        ManagUserList.addUser("Luca", "password");
+        ManagUserList.addUser("Erik", "password");
+        ManagUserList.addUser("Jan", "password");
+        
+        // check if the password was correct
         if(ManagUserList.checkLogInData(username, password)){
             System.out.println("hallo" + username);
             return "home";
@@ -25,14 +35,26 @@ public class LogIn_Navigation {
         return "LogIn";
     }
     
+    /**
+     * 
+     * @param username 
+     */
     public void setUsername(String username){
         this.username = username;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String getUsername(){
         return username;
     }
     
+    /**
+     * 
+     * @param password 
+     */
     public void setPassword(String password){
         this.password = password;
     }

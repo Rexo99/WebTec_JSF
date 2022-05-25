@@ -4,3 +4,10 @@
 /.idea/.gitignore
 /.idea/WebTec_Teil2.iml
 ./SteaM/nb-configuration.xml
+.DS_Store
+.idea/
+SteaM/.DS_Store
+SteaM/src/.DS_Store
+SteaM/src/main/.DS_Store
+SteaM/target/SteaM-1.0-SNAPSHOT/gfv510ee8.dpf
+SteaM/target/maven-status/maven-compiler-plugin/testCompile/

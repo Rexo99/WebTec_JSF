@@ -24,6 +24,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./AdvancedSearch.xhtml">erweiterte Suche</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./createSeries.xhtml">Serie erstellen</a>
+                        </li>
                     </ul>
                     <form class="d-flex" method="get" action="../index.html">
                         <button class="btn btn-outline-success" type="submit">log out</button>
@@ -87,57 +90,23 @@
 
         
         <!-- all Series -->
-        <div class="container col-8 py-5">
-
-            <!-- Movie 1 -->
-            <div class="py-2">
-                <div class="card">
-                    <h5 class="card-header">Dinotopia</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Action</h5>
-                        <p class="card-text">An unbelievably good film that will amaze the whole family.</p>
-                        <a href="#" class="btn btn-primary">show</a>
-                    </div>
+        <h:dataTable value="#{showSerienBean.getRatings(loginBean.username)}" var="s" class="container col-8 py-5">
+            <h:column>
+                <div class="py-2">
+                    <a href="#" class="text-decoration-none text-black">
+                        <div class="card">
+                            <h5 class="card-header">#{s.ratedSeries.title}</h5>
+                            <div class="card-body">
+                                <h5 class="card-title">#{s.ratedSeries.genre}</h5>
+                                <p class="card-text">#{s.remark}</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
+            </h:column>
 
-            <!-- Movie 2 -->
-            <div class="py-2">
-                <div class="card">
-                    <h5 class="card-header">Dinotopia reload</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Action</h5>
-                        <p class="card-text">An unbelievably good film that will amaze the whole family.</p>
-                        <a href="#" class="btn btn-primary">show</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Movie 3 -->
-            <div class="py-2">
-                <div class="card">
-                    <h5 class="card-header">Ein Film</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Drama</h5>
-                        <p class="card-text">You wanna cry.</p>
-                        <a href="#" class="btn btn-primary">show</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Movie 4 -->
-            <div class="py-2">
-                <div class="card">
-                    <h5 class="card-header">A normal day with the group 22</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Drama</h5>
-                        <p class="card-text">An up and down with the feelings. I don't know whether to cry or laugh. </p>
-                        <a href="#" class="btn btn-primary">show</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </h:dataTable>
+            
         <!-- JS from bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </h:body>

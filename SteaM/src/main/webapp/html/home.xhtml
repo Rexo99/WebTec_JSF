@@ -60,6 +60,9 @@
                                 <h5 class="card-text">Seasons: #{s.numberOfSeasons}</h5>
                                 <h5 class="card-text">Seasons: #{s.streamedBy}</h5>
                             </div>
+                            <h:form styleClass="container col-3">
+                                <h:commandButton value ="Edit" action= "#{manageSeries.edit(s)}" styleClass="btn btn-primary container"/>
+                            </h:form>
                         </div>
                     </a>
                 </div>

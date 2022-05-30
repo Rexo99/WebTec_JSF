@@ -31,7 +31,6 @@ public class LoginBean implements Serializable{
     String result;
 
 
-
     public String getUsername() {
         System.out.println("Getter user: "+ this.username + "   obj: "+ this);
         return username;
@@ -62,12 +61,12 @@ public class LoginBean implements Serializable{
         
     }
     
-        public String getResult() {
+
+    public String getResult() {
         return result;
     }
 
     public void setResult(String result) {
         this.result = result;
     }
-    
 }

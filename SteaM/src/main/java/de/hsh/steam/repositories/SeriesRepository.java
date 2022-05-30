@@ -24,6 +24,10 @@ public abstract class SeriesRepository  {
 	protected ArrayList<User> allUsers;
 
 	public SeriesRepository(){
+                //User marvin = new User("marvin", "123");
+                //allUsers.add(marvin);
+                //Series s1 = new Series("Eins", 3, Genre.Action, Streamingprovider.Netflix);
+                //allSeries.add(s1);
 		this.allSeries = new ArrayList<Series>();
 		this.allUsers = new ArrayList<User>();
 	}

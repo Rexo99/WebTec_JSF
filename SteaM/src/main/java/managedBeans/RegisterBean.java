@@ -8,6 +8,9 @@ import de.hsh.steam.services.SteamService;
 import java.beans.*;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -23,6 +26,7 @@ public class RegisterBean implements Serializable {
         
     }
     
+    UIComponent registerButton;
     String username;
     String password;
 
@@ -45,6 +49,25 @@ public class RegisterBean implements Serializable {
     }
     
     public void register(){
-        SteamService.getInstance().newUser(this.username, this.password);
+        boolean isOk = SteamService.getInstance().newUser(this.username, this.password);
+        if (isOk) {
+            FacesMessage message = new FacesMessage("User created");
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(registerButton.getClientId(context), message);
+        } else {
+            FacesMessage message = new FacesMessage("User already exists");
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(registerButton.getClientId(context), message);
+            }
     }
+
+    public void setRegisterButton(UIComponent registerButton) {
+        this.registerButton = registerButton;
+    }
+
+    public UIComponent getRegisterButton() {
+        return registerButton;
+    }
+    
+    
 }

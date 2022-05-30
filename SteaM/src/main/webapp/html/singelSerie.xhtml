@@ -21,7 +21,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./AdvancedSearch.xhtml">erweiterte Suche</a>
+                            <a class="nav-link active" aria-current="page" href="./AdvancedSearch.xhtml">Erweiterte Suche</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./createSeries.xhtml">Serie erstellen</a>
@@ -35,29 +35,53 @@
         </nav>
         
         <!-- Serie -->
-        <div class="py-2">
-            <h:form>
-                <!-- Title -->
-                <lable for="title">Title: </lable>
-                <h:inputText id="title" value="#{manageSeries.serie.title}" /> <br/>
-
-                <!-- numberOfSeasons -->
-                <lable for="numberOfSeasons">Number Of Seasons: </lable>
-                <h:inputText id="numberOfSeasons" value="#{manageSeries.serie.numberOfSeasons}" /> <br/>
-
-                <!-- genre -->
-                <lable for="genre">Genre: </lable>
-                <h:inputText id="genre" value="#{manageSeries.serie.genre}" /> <br/>
-
-                <!-- streamedBy -->
-                <lable for="streamedBy">Number Of Seasons: </lable>
-                <h:inputText id="streamedBy" value="#{manageSeries.serie.streamedBy}" /> <br/>
-
-                <!-- Save -->
-                <h:commandButton value = "Save" action= "#{manageSeries.save()}" styleClass="btn btn-primary"/>
+        <div class="container py-5">
+            <h:form styleClass="row g-3">
                 
-                <!-- go back -->
-                <h:commandButton value = "Back" action= "searchResult" styleClass="btn btn-primary"/>
+                <!-- Title -->
+                <div class="col-md-6">
+                    <lable for="title" class="form-label">Title: </lable>
+                    <h:inputText id="title" styleClass="form-control" value="#{manageSeries.serie.title}" /> <br/>
+                </div>
+                
+                <!-- numberOfSeasons -->
+                <div class="col-md-6">
+                    <lable for="numberOfSeasons" class="form-label">Number Of Seasons: </lable>
+                    <h:inputText id="numberOfSeasons" styleClass="form-control" value="#{manageSeries.serie.numberOfSeasons}" /> <br/>
+                </div>
+                
+                <!-- genre -->
+                <div class="col-md-6">
+                    <lable for="genre" class="form-label">Genre: </lable>
+                    <h:selectOneMenu value="#{manageSeries.serie.genre}" id="genre" styleClass="form-select">
+                        <f:selectItem itemValue="Action" itemLabel="Action"/>
+                        <f:selectItem itemValue="Drama" itemLabel="Drama"/>
+                        <f:selectItem itemValue="Comedy" itemLabel="Comedy"/>
+                        <f:selectItem itemValue="Thriller" itemLabel="Thriller"/>
+                        <f:selectItem itemValue="Documentary" itemLabel="Documentary"/>
+                        <f:selectItem itemValue="ScienceFiction" itemLabel="ScienceFiction"/>
+                    </h:selectOneMenu>
+                </div>
+                
+                <!-- streamedBy -->
+                <div class="col-md-6">
+                    <lable for="streamedBy" class="form-label">Number Of Seasons: </lable>
+                    <h:selectOneMenu value="#{manageSeries.serie.streamedBy}" id="streamedBy" styleClass="form-select" required="true">
+                        <f:selectItem itemValue="Netflix" itemLabel="Netflix"/>
+                        <f:selectItem itemValue="AmazonPrime" itemLabel="Amazon Prime"/>
+                        <f:selectItem itemValue="DisneyPlus" itemLabel="Disney Plus"/>
+                        <f:selectItem itemValue="Sky" itemLabel="Sky"/>
+                    </h:selectOneMenu>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Save -->
+                    <h:commandButton value = "Save" action= "#{manageSeries.save()}" styleClass="btn btn-primary"/>
+
+                    <!-- go back -->
+                    <h:commandButton value = "Back" action= "searchResult" styleClass="btn btn-primary"/>
+                </div>
+                
 
             </h:form>
         </div>

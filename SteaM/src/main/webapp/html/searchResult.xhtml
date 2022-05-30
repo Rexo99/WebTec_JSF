@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./AdvancedSearch.xhtml">erweiterte Suche</a>
+                            <a class="nav-link active" aria-current="page" href="./AdvancedSearch.xhtml">Erweiterte Suche</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./createSeries.xhtml">Serie erstellen</a>
@@ -49,8 +49,8 @@
                             <h5 class="card-title">Streamed By: #{s.streamedBy}</h5>
                             <h5 class="card-title">Genre: #{s.genre}</h5>
                         </div>
-                        <h:form>
-                            <h:commandButton value = "Edit" action= "#{manageSeries.edit(s)}" styleClass="btn btn-primary container"/>
+                        <h:form styleClass="container col-3">
+                            <h:commandButton value ="Edit" action= "#{manageSeries.edit(s)}" styleClass="btn btn-primary container"/>
                         </h:form>
                     </div>
                 </div>

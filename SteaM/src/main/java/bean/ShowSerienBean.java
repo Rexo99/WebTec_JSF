@@ -5,12 +5,13 @@
 package bean;
 
 import de.hsh.steam.entities.Rating;
+import de.hsh.steam.repositories.SerializedSeriesRepository;
 import gruppe22.steam.ReadSeries;
 import java.io.Serializable;
-import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-
+import java.util.ArrayList;
+import de.hsh.steam.entities.Series;
 /**
  *
  * @author luca
@@ -19,7 +20,9 @@ import javax.inject.Named;
 @SessionScoped
 public class ShowSerienBean implements Serializable{
     
-    public List<Rating> getRatings(String username){
-        return ReadSeries.getRatings(username);
-    }   
+    public ArrayList<Series> getAllSeries(String username){
+        return SerializedSeriesRepository.getInstance().getAllSeriesOfUser(username);
+    }
+    
+   
 }

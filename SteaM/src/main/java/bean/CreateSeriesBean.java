@@ -5,13 +5,11 @@
 package bean;
 
 import de.hsh.steam.entities.Genre;
-import de.hsh.steam.entities.Score;
 import de.hsh.steam.entities.Series;
 import de.hsh.steam.entities.Streamingprovider;
 import de.hsh.steam.repositories.SerializedSeriesRepository;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import org.graalvm.compiler.replacements.Log;
 
 /**
  *
@@ -55,15 +53,17 @@ public class CreateSeriesBean {
         return numberOfSeasons;
     }
 
-    public void setNumberOfSeasons(int numbeOfSeasons) {
-        this.numberOfSeasons = numbeOfSeasons;
+    public void setNumberOfSeasons(int numberOfSeasons) {
+        this.numberOfSeasons = numberOfSeasons;
     }
+
+    
     
     public String createSeries(String username){
         Series serie = new Series(title, numberOfSeasons, genre, provider);
         SerializedSeriesRepository instance = SerializedSeriesRepository.getInstance();
-        if (title == null){
-            return "AdvancedSearch";
+        if (numberOfSeasons == 0 ){
+            return "createSeries";
         }
         serie = instance.addOrModifySeries(serie);
         serie.putOnWatchListOfUser(instance.getUserObject(username));

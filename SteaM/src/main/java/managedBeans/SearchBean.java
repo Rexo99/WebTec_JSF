@@ -81,11 +81,7 @@ public class SearchBean implements Serializable{
     
     
     public String searchSerie(String username){
-        Series serie = new Series("Lucas Film", 3, Genre.Action, Streamingprovider.Netflix);
-        SerializedSeriesRepository.getInstance().addOrModifySeries(serie);
-        User u = SerializedSeriesRepository.getInstance().getUserObject(username);
-        serie.putOnWatchListOfUser(u);
-        Rating r = new Rating(Score.bad, "Toll", u, serie);
+        
         // fill arrayList with the search Results
         result = SerializedSeriesRepository.getInstance().searchSeries(username, genre, streamingProvider, score);
        

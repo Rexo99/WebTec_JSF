@@ -33,8 +33,8 @@ public class ShowSerienBean implements Serializable{
         ratings.add(new Rating(Score.good, "spuper 2", luca, new Series("Was tue ich hier", 2, Genre.Action, Streamingprovider.Netflix)));
         ratings.add(new Rating(Score.good, "Absoluter Müll", luca, new Series("Serie 4", 4, Genre.Drama, Streamingprovider.Netflix)));
         
-        String username;
-        
+        String username = "luca";
+
         List<Series> serien = SerializedSeriesRepository.getInstance().getAllSeriesOfUser(username);
         User user = SerializedSeriesRepository.getInstance().getUserObject(username);
         for (Series s: serien){

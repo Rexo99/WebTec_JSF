@@ -28,7 +28,7 @@ public class LoginBean implements Serializable{
     
     String username;
     String pwd;
-    // String result;
+    String result;
 
 
     public String getUsername() {
@@ -54,16 +54,14 @@ public class LoginBean implements Serializable{
     public String login(){
         boolean valid = SteamService.getInstance().login(this.username, this.pwd);
         if (valid){
-            // this.result = "SUCCESS";
             return "home";
         }
-        else {
-            // this.result = "INVALID";
-            return "loginDunkel";
-        }
+        else
+            return this.result = "failed";
+        
     }
     
-    /*
+
     public String getResult() {
         return result;
     }
@@ -71,6 +69,4 @@ public class LoginBean implements Serializable{
     public void setResult(String result) {
         this.result = result;
     }
-*/
-    
 }

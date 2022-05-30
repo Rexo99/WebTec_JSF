@@ -87,7 +87,7 @@
 
         
         <!-- all Series -->
-        <h:dataTable value="#{showSerienBean.ratings}" var="s" class="container col-8 py-5">
+        <h:dataTable value="#{showSerienBean.getRatings(loginBean.username)}" var="s" class="container col-8 py-5">
             <h:column>
                 <div class="py-2">
                     <a href="#" class="text-decoration-none text-black">

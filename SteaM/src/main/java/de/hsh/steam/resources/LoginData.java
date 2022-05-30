@@ -28,7 +28,4 @@ public class LoginData {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
-    
-    
-    
 }

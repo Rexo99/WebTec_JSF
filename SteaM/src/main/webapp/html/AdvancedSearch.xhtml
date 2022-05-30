@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+        <title>Advanced Search</title>
+    </h:head>
+
+
+<h:body>
+
+<!-- #### Navigartions Bar #### -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="./Home.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <form class="d-flex" method="get" action="../index.html">
+                <button class="btn btn-outline-success" type="submit">log out</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- Search -->
+<div class="container py-5">
+    <h:form class="row g-3">
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Username</label>
+            <input type="text" class="form-control" id="inputEmail4"></input>
+        </div>
+        <div class="col-md-6">
+            <label for="inputGenre" class="form-label">Genre</label>
+            <h:selectOneMenu value="searchBean.genre" id="inptGenre" >
+                <f:selectItem itemValue="Action" itemLabel="Action"/>
+                <f:selectItem itemValue="Drama" itemLabel="Drama"/>
+                <f:selectItem itemValue="Comedie" itemLabel="Comedie"/>
+            </h:selectOneMenu>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputPlattform" class="form-label">Plattform</label>
+            <h:selectOneMenu value="searchBean.streamingProvider" id="inputPlattform" >
+                <f:selectItem itemValue="Netflix" itemLabel="Netflix"/>
+                <f:selectItem itemValue="Amazon Prime" itemLabel="Amazon Prime"/>
+                <f:selectItem itemValue="Disney Plus" itemLabel="Disney Plus"/>
+                <f:selectItem itemValue="Sky" itemLabel="Sky"/>
+            </h:selectOneMenu>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputScore" class="form-label">Score</label>
+            
+            <h:selectOneMenu value="searchBean.streamingProvider" id="inputScore" >
+                <f:selectItem itemValue="bad" itemLabel="bad"/>
+                <f:selectItem itemValue="medicore" itemLabel="medicore"/>
+                <f:selectItem itemValue="good" itemLabel="good"/>
+                <f:selectItem itemValue="very good" itemLabel="very good"/>
+                <f:selectItem itemValue="amazing" itemLabel="amazing"/>
+            </h:selectOneMenu>
+        </div>
+
+        <div class="col-12">
+            
+            <h:commandButton value = "Search"
+                             action= "#{searchBean.searchSerie}"
+                             styleClass="btn btn-primary"/>
+        </div>
+    </h:form>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</h:body>
+    
+</html>

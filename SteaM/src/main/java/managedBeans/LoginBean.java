@@ -11,6 +11,9 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 /**
  *
  * @author dunkel
@@ -29,6 +32,7 @@ public class LoginBean implements Serializable{
     String username;
     String pwd;
     String result;
+    UIComponent loginButton; 
 
 
     public String getUsername() {
@@ -56,8 +60,13 @@ public class LoginBean implements Serializable{
         if (valid){
             return "home";
         }
-        else
-            return this.result = "failed";
+        else {
+            FacesMessage message = new FacesMessage("Wrong Password");
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(loginButton.getClientId(context), message);
+        }
+            
+        return null;
         
     }
     
@@ -69,4 +78,13 @@ public class LoginBean implements Serializable{
     public void setResult(String result) {
         this.result = result;
     }
+
+    public UIComponent getLoginButton() {
+        return loginButton;
+    }
+
+    public void setLoginButton(UIComponent loginButton) {
+        this.loginButton = loginButton;
+    }
+    
 }

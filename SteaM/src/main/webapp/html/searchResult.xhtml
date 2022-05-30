@@ -11,8 +11,27 @@
     </h:head>
 
     <h:body>
-        <c:forEach items="#{searchBean.searchSerie(loginBean.username)}" var="s">
-            #{s.getTitle}
+        
+        <!-- #### Navigartions Bar #### -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./home.xhtml">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    </ul>
+                    <form class="d-flex" method="get" action="../index.html">
+                        <button class="btn btn-outline-success" type="submit">log out</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Tabelle -->
+        <c:forEach items="#{searchBean.result}" var="s">
+            #{s.title}
         </c:forEach>
     </h:body>
 

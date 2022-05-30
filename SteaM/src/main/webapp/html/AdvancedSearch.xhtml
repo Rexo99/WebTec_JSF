@@ -43,7 +43,7 @@
             <h:selectOneMenu value="#{searchBean.genre}" id="inptGenre" styleClass="form-select" >
                 <f:selectItem itemValue="Action" itemLabel="Action"/>
                 <f:selectItem itemValue="Drama" itemLabel="Drama"/>
-                <f:selectItem itemValue="Comedie" itemLabel="Comedie"/>
+                <f:selectItem itemValue="Comedy" itemLabel="Comedie"/>
             </h:selectOneMenu>
         </div>
 
@@ -51,8 +51,8 @@
             <label for="inputPlattform" class="form-label">Plattform</label>
             <h:selectOneMenu value="#{searchBean.streamingProvider}" id="inputPlattform" styleClass="form-select" >
                 <f:selectItem itemValue="Netflix" itemLabel="Netflix"/>
-                <f:selectItem itemValue="Amazon Prime" itemLabel="Amazon Prime"/>
-                <f:selectItem itemValue="Disney Plus" itemLabel="Disney Plus"/>
+                <f:selectItem itemValue="AmazonPrime" itemLabel="Amazon Prime"/>
+                <f:selectItem itemValue="DisneyPlus" itemLabel="Disney Plus"/>
                 <f:selectItem itemValue="Sky" itemLabel="Sky"/>
             </h:selectOneMenu>
         </div>
@@ -70,7 +70,7 @@
 
         <div class="col-12">
             <h:commandButton value = "Search"
-                             action= "#{searchBean.searchSerie()}"
+                             action= "#{searchBean.searchSerie(loginBean.username)}"
                              styleClass="btn btn-primary"/>
         </div>
     </h:form>

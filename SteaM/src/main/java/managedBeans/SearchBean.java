@@ -36,7 +36,7 @@ public class SearchBean implements Serializable{
     private Genre genre;
     private Streamingprovider streamingProvider;
     private Score score;
-    private ArrayList<Series> sResult;
+    private ArrayList<Series> result;
 
     public String getUsername() {
         return username;
@@ -70,26 +70,29 @@ public class SearchBean implements Serializable{
         this.score = score;
     }
 
-    public ArrayList<Series> getsResult() {
-        return sResult;
+    public ArrayList<Series> getResult() {
+        return result;
     }
 
-    public void setsResult(ArrayList<Series> sResult) {
-        this.sResult = sResult;
+    public void setResult(ArrayList<Series> result) {
+        this.result = result;
     }
+
     
-    public String searchSerie(){
-        //Series s1 = new Series("Eins", 3, Genre.Action, Streamingprovider.Netflix);
-        //SerializedSeriesRepository.getInstance().addOrModifySeries(s1);
-        
+    
+    public String searchSerie(String username){
+        Series serie = new Series("Lucas Film", 3, Genre.Action, Streamingprovider.Netflix);
+        SerializedSeriesRepository.getInstance().addOrModifySeries(serie);
+        User u = SerializedSeriesRepository.getInstance().getUserObject(username);
+        serie.putOnWatchListOfUser(u);
+        Rating r = new Rating(Score.bad, "Toll", u, serie);
         // fill arrayList with the search Results
-        sResult = SerializedSeriesRepository.getInstance().searchSeries(username, genre, streamingProvider, score);
+        result = SerializedSeriesRepository.getInstance().searchSeries(username, genre, streamingProvider, score);
        
-        if(!sResult.isEmpty()){
+        if(!result.isEmpty()){
             return "searchResult";
         } else {
             return "home";
         }
     }
-    
 }

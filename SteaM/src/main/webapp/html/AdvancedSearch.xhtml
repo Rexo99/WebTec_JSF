@@ -17,7 +17,7 @@
 <!-- #### Navigartions Bar #### -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light border sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./Home.html">Home</a>
+        <a class="navbar-brand" href="./home.xhtml">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,14 +33,14 @@
 
 <!-- Search -->
 <div class="container py-5">
-    <h:form class="row g-3">
+    <h:form styleClass="row g-3">
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Username</label>
             <input type="text" class="form-control" id="inputEmail4"></input>
         </div>
         <div class="col-md-6">
             <label for="inputGenre" class="form-label">Genre</label>
-            <h:selectOneMenu value="searchBean.genre" id="inptGenre" >
+            <h:selectOneMenu value="#{searchBean.genre}" id="inptGenre" styleClass="form-select" >
                 <f:selectItem itemValue="Action" itemLabel="Action"/>
                 <f:selectItem itemValue="Drama" itemLabel="Drama"/>
                 <f:selectItem itemValue="Comedie" itemLabel="Comedie"/>
@@ -49,7 +49,7 @@
 
         <div class="col-md-6">
             <label for="inputPlattform" class="form-label">Plattform</label>
-            <h:selectOneMenu value="searchBean.streamingProvider" id="inputPlattform" >
+            <h:selectOneMenu value="#{searchBean.streamingProvider}" id="inputPlattform" styleClass="form-select" >
                 <f:selectItem itemValue="Netflix" itemLabel="Netflix"/>
                 <f:selectItem itemValue="Amazon Prime" itemLabel="Amazon Prime"/>
                 <f:selectItem itemValue="Disney Plus" itemLabel="Disney Plus"/>
@@ -59,8 +59,7 @@
 
         <div class="col-md-6">
             <label for="inputScore" class="form-label">Score</label>
-            
-            <h:selectOneMenu value="searchBean.streamingProvider" id="inputScore" >
+            <h:selectOneMenu value="#{searchBean.score}" id="inputScore" styleClass="form-select">
                 <f:selectItem itemValue="bad" itemLabel="bad"/>
                 <f:selectItem itemValue="medicore" itemLabel="medicore"/>
                 <f:selectItem itemValue="good" itemLabel="good"/>
@@ -70,9 +69,8 @@
         </div>
 
         <div class="col-12">
-            
             <h:commandButton value = "Search"
-                             action= "#{searchBean.searchSerie}"
+                             action= "#{searchBean.searchSerie()}"
                              styleClass="btn btn-primary"/>
         </div>
     </h:form>

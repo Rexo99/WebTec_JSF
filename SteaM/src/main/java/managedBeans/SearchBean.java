@@ -36,7 +36,7 @@ public class SearchBean implements Serializable{
     private Genre genre;
     private Streamingprovider streamingProvider;
     private Score score;
-    private ArrayList<Series> searchResult;
+    private ArrayList<Series> sResult;
 
     public String getUsername() {
         return username;
@@ -70,21 +70,22 @@ public class SearchBean implements Serializable{
         this.score = score;
     }
 
-    public ArrayList<Series> getSearchResult() {
-        return searchResult;
+    public ArrayList<Series> getsResult() {
+        return sResult;
     }
 
-    public void setSearchResult(ArrayList<Series> searchResult) {
-        this.searchResult = searchResult;
+    public void setsResult(ArrayList<Series> sResult) {
+        this.sResult = sResult;
     }
     
     public String searchSerie(){
-        Series s1 = new Series("Eins", 3, Genre.Action, Streamingprovider.Netflix);
-        SerializedSeriesRepository.getInstance().addOrModifySeries(s1);
-        User u1 = new User("marvin", "1234");
-        searchResult = SerializedSeriesRepository.getInstance().searchSeries(username, genre, streamingProvider, score);
-        //searchResult = SteamService.getInstance().search(user, genre, streamingProvider, score);
-        if(!searchResult.isEmpty()){
+        //Series s1 = new Series("Eins", 3, Genre.Action, Streamingprovider.Netflix);
+        //SerializedSeriesRepository.getInstance().addOrModifySeries(s1);
+        
+        // fill arrayList with the search Results
+        sResult = SerializedSeriesRepository.getInstance().searchSeries(username, genre, streamingProvider, score);
+       
+        if(!sResult.isEmpty()){
             return "searchResult";
         } else {
             return "home";

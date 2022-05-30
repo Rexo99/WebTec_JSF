@@ -5,19 +5,23 @@
 package bean;
 
 import de.hsh.steam.entities.Genre;
+import de.hsh.steam.entities.Score;
+import de.hsh.steam.entities.Series;
 import de.hsh.steam.entities.Streamingprovider;
+import de.hsh.steam.repositories.SerializedSeriesRepository;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import org.graalvm.compiler.replacements.Log;
 
 /**
  *
  * @author luca
  */
-@Named(value="showSeriesBean")
+@Named(value="createSeries")
 @RequestScoped
 public class CreateSeriesBean {
     private String title;
-    private int numbeOfSeasons;
+    private int numberOfSeasons;
     private Genre genre;
     private Streamingprovider provider;
 
@@ -47,13 +51,26 @@ public class CreateSeriesBean {
         this.title = title;
     }
 
-    public int getNumbeOfSeasons() {
-        return numbeOfSeasons;
+    public int getNumberOfSeasons() {
+        return numberOfSeasons;
     }
 
-    public void setNumbeOfSeasons(int numbeOfSeasons) {
-        this.numbeOfSeasons = numbeOfSeasons;
+    public void setNumberOfSeasons(int numbeOfSeasons) {
+        this.numberOfSeasons = numbeOfSeasons;
     }
     
-    
+    public String createSeries(String username){
+        Series serie = new Series(title, numberOfSeasons, genre, provider);
+        SerializedSeriesRepository instance = SerializedSeriesRepository.getInstance();
+        if (title == null){
+            return "AdvancedSearch";
+        }
+        serie = instance.addOrModifySeries(serie);
+        serie.putOnWatchListOfUser(instance.getUserObject(username));
+        if(instance.getAllSeries().contains(serie)){
+            return "home";
+        } else {
+            return "createSeries";
+        }
+    }
 }

@@ -16,8 +16,8 @@ import javax.inject.Named;
 @Named(value= "checkLogIn")
 @SessionScoped
 public class CheckLogIn implements Serializable {
-    String username;
-    String password;
+    private String username;
+    private String password;
     
     
     public String goTo(){

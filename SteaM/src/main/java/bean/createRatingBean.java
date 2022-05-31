@@ -11,11 +11,11 @@ import javax.inject.Named;
 @Named(value= "createRatingBean")
 @RequestScoped
 public class createRatingBean {
-    Series series;
+    private Series series;
 
-    Score score;
+    private Score score;
 
-    String remark;
+    private String remark;
 
     public Score getScore() {
         return score;
@@ -49,6 +49,7 @@ public class createRatingBean {
     public String createRating(String username) {
         User user = SerializedSeriesRepository.getInstance().getUserObject(username);
         user.rate(series,score,remark);
+        SerializedSeriesRepository.getInstance().saveData();
         return "home";
     }
 }

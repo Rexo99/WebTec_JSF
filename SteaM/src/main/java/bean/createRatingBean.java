@@ -4,8 +4,6 @@ import de.hsh.steam.entities.Score;
 import de.hsh.steam.entities.Series;
 import de.hsh.steam.entities.User;
 import de.hsh.steam.repositories.SerializedSeriesRepository;
-
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;

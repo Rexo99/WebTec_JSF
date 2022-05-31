@@ -9,6 +9,6 @@ public enum Streamingprovider implements Serializable {
 	
 	Netflix, 
 	AmazonPrime, 
-	Sky;
-
+	Sky,
+        DisneyPlus;
 }

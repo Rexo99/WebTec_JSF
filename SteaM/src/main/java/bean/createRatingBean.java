@@ -1,5 +1,6 @@
 package bean;
 
+import de.hsh.steam.entities.Rating;
 import de.hsh.steam.entities.Score;
 import de.hsh.steam.entities.Series;
 import de.hsh.steam.entities.User;
@@ -41,8 +42,18 @@ public class createRatingBean implements Serializable {
         this.remark = remark;
     }
 
-    public String setRating(Series s) {
+    public String setRating(String username, Series s) {
+        User user = SerializedSeriesRepository.getInstance().getUserObject(username);
         series = s;
+        Rating rating = user.ratingOf(series);
+        if (rating == null){
+            score = Score.good;
+            remark = "";
+        } else {
+            score = rating.getScore();
+            remark = rating.getRemark();
+        }
+
         return "rating";
     }
 

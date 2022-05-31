@@ -39,6 +39,15 @@ public class ManageSeries implements Serializable{
     public Series getSerie() {
         return serie;
     }
+    public String getRemark(Series s, String username) {
+        SerializedSeriesRepository instance = SerializedSeriesRepository.getInstance();
+        User u = instance.getUserObject(username);
+        Rating r = u.ratingOf(s);
+        if(r == null){
+            return " ";
+        }
+        return r.getRemark();
+    }
     
     public String getRated(Series s, String username){
         SerializedSeriesRepository instance = SerializedSeriesRepository.getInstance();

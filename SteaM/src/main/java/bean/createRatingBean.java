@@ -48,6 +48,9 @@ public class createRatingBean implements Serializable {
 
     public String createRating(String username) {
         User user = SerializedSeriesRepository.getInstance().getUserObject(username);
+        if(series == null){
+            return "../index.html";
+        }
         user.rate(series,score,remark);
         SerializedSeriesRepository.getInstance().saveData();
         return "home";

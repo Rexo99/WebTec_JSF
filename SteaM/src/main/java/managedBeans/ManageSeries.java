@@ -49,7 +49,6 @@ public class ManageSeries implements Serializable{
         }
         return r.getScore().toString();
     }
-  
     public String save(){
         Series new_s = new Series(serie.getTitle(), serie.getNumberOfSeasons(), serie.getGenre(), serie.getStreamedBy());
         SerializedSeriesRepository instance = SerializedSeriesRepository.getInstance();

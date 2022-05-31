@@ -46,10 +46,12 @@
                             <div class="card-body">
                                 <h5 class="card-text">Genre: #{s.genre}</h5>
                                 <h5 class="card-text">Seasons: #{s.numberOfSeasons}</h5>
-                                <h5 class="card-text">Seasons: #{s.streamedBy}</h5>
+                                <h5 class="card-text">Streamed By: #{s.streamedBy}</h5>
+                                <h5 class="card-text">Rated: #{manageSeries.getRated(s, loginBean.username)}</h5>
                             </div>
                             <h:form styleClass="container col-3">
                                 <h:commandButton value ="Edit" action= "#{manageSeries.edit(s)}" styleClass="btn btn-primary container"/>
+                                <h:commandButton value="Rate" action="#{createRatingBean.setRating(s)}" styleClass="btn btn-primary container"/>
                             </h:form>
                         </div>
                     </a>

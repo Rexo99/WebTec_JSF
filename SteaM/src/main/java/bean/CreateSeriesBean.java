@@ -68,6 +68,7 @@ public class CreateSeriesBean {
         serie = instance.addOrModifySeries(serie);
         serie.putOnWatchListOfUser(instance.getUserObject(username));
         if(instance.getAllSeries().contains(serie)){
+            instance.saveData();
             return "home";
         } else {
             return "createSeries";

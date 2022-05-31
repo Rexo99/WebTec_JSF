@@ -36,16 +36,12 @@ public class ManageSeries implements Serializable{
         return serie;
     }
     
-    public String save(String whereAmI){
+    public String save(){
         Series new_s = new Series(serie.getTitle(), serie.getNumberOfSeasons(), serie.getGenre(), serie.getStreamedBy());
         SerializedSeriesRepository instance = SerializedSeriesRepository.getInstance();
         serie = instance.addOrModifySeries(new_s);
+        instance.saveData();
         
         return "home";
-       
-        //return "searchResult";
-       
-        
     }
-    
 }

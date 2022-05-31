@@ -6,6 +6,7 @@ package managedBeans;
  */
 
 import de.hsh.steam.main.SteamTest;
+import de.hsh.steam.repositories.SerializedSeriesRepository;
 import de.hsh.steam.services.SteamService;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -58,6 +59,7 @@ public class LoginBean implements Serializable{
     public String login(){
         boolean valid = SteamService.getInstance().login(this.username, this.pwd);
         if (valid){
+            SerializedSeriesRepository.getInstance().readData();
             return "home";
         }
         else {
@@ -65,9 +67,7 @@ public class LoginBean implements Serializable{
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(loginButton.getClientId(context), message);
         }
-            
         return null;
-        
     }
     
 

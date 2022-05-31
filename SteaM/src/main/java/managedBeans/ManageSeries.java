@@ -4,13 +4,17 @@
  */
 package managedBeans;
 
+import de.hsh.steam.entities.Rating;
+import de.hsh.steam.entities.Score;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import de.hsh.steam.entities.Series;
 import de.hsh.steam.repositories.SerializedSeriesRepository;
+import de.hsh.steam.entities.User;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+
 
 
 /**
@@ -34,6 +38,16 @@ public class ManageSeries implements Serializable{
     
     public Series getSerie() {
         return serie;
+    }
+    
+    public String getRated(Series s, String username){
+        SerializedSeriesRepository instance = SerializedSeriesRepository.getInstance();
+        User u = instance.getUserObject(username);
+        Rating r = u.ratingOf(s);
+        if(r == null){
+            return " - ";
+        }
+        return r.getScore().toString();
     }
     
     public String save(){

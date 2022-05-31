@@ -6,11 +6,13 @@ import de.hsh.steam.entities.User;
 import de.hsh.steam.repositories.SerializedSeriesRepository;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 
 @Named(value= "createRatingBean")
-@RequestScoped
-public class createRatingBean {
+@SessionScoped
+public class createRatingBean implements Serializable {
     private Series series;
 
     private Score score;

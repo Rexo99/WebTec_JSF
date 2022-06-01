@@ -51,8 +51,13 @@
                                 <h5 class="card-text">Remark: #{manageSeries.getRemark(s, loginBean.username)}</h5>
                             </div>
                             <h:form styleClass="container col-3">
-                                <h:commandButton value ="Edit" action= "#{manageSeries.edit(s)}" styleClass="btn btn-primary container"/>
-                                <h:commandButton value="Rate" action="#{createRatingBean.setRating(loginBean.username,s)}" styleClass="btn btn-primary container py-2"/>
+                                <div class="py-2">
+                                    <h:commandButton value ="Edit" action= "#{manageSeries.edit(s)}" styleClass="btn btn-primary container"/>                   
+                                </div>
+                                
+                                <div class="py-2">
+                                    <h:commandButton value="Rate" action="#{createRatingBean.setRating(loginBean.username,s)}" styleClass="btn btn-primary container"/>                           
+                                </div>
                             </h:form>
                         </div>
                     </a>
